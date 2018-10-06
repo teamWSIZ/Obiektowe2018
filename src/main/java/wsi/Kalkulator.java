@@ -11,7 +11,11 @@ public class Kalkulator {
     }
 
     double divide(double a, double b) {
-        return 0;
+        return a / b;
+    }
+
+    double multiply(double a, double b) {
+        return a*b;
     }
 
 
