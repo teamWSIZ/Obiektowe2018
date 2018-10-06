@@ -11,8 +11,14 @@ public class Kalkulator {
     }
 
     double divide(double a, double b) {
-        return 0;
+        return a/b;
     }
+
+    double multiple(double a, double b) {
+        return a*b;
+    }
+
+
 
 
     public static void main(String[] args) {
