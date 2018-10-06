@@ -15,7 +15,7 @@ public class SzukaczTest {
     }
 
     @Test
-    public void easy() {
+    public void easyContains() {
         //given
         int[] a = new int[]{0, 1, 2};
         //when
@@ -25,7 +25,7 @@ public class SzukaczTest {
     }
 
     @Test
-    public void easy1() {
+    public void easyDoesNotContain() {
         //given
         int[] a = new int[]{0, 1, 2};
         //when
@@ -35,7 +35,7 @@ public class SzukaczTest {
     }
 
     @Test
-    public void easy2() {
+    public void easyEmptyArray() {
         //given
         int[] a = new int[]{};
         //when
@@ -45,7 +45,7 @@ public class SzukaczTest {
     }
 
     @Test
-    public void easy3() {
+    public void easyLargeNumbers() {
         //given
         int[] a = new int[]{0, 1, 2,111,1111111};
         //when
