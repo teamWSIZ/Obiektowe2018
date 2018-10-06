@@ -64,5 +64,15 @@ public class KalkulatorTest {
         assertThat(u).isCloseTo(2.5, Percentage.withPercentage(0.1));
     }
 
+    @Test
+    public void shouldMultiplyDoubles() {
+        //given
+
+        //when
+        double u = testee.multiple(5.5, 2.0);
+        //then
+        assertThat(u).isCloseTo(11.0, Percentage.withPercentage(0.1));
+    }
+
 
 }
