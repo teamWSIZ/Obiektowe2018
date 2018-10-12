@@ -1,12 +1,15 @@
 package wsi;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Szukacz {
-    /**
-     * Metoda biorąca tablicę int-ów, i dodatkowo int x;
-     * ma zwracać "true" jeśli x jest w tablicy
-     */
     boolean doesContain(int[] arr, int x) {
-        //write your code here
-        return true;
+        List<Integer> list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+        if(list.contains(x)) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }

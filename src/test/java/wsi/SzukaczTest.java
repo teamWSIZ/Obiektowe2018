@@ -1,6 +1,4 @@
 package wsi;
-
-import org.assertj.core.data.Percentage;
 import org.junit.Before;
 import org.junit.Test;
 
