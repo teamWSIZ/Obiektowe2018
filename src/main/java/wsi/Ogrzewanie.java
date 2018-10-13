@@ -11,6 +11,11 @@ import java.util.Arrays;
 public class Ogrzewanie {
 
     boolean isHeated(int[] heaters, int r) {
+        ///podzadanie 1: storzyć listę pozycji, na których
+        /// tablica "heaters" ma "1"
+        for (int poz = 0; poz < heaters.length; poz++) {
+
+        }
         return true;
     }
 
