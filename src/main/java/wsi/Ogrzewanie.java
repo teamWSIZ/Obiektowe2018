@@ -14,7 +14,9 @@ public class Ogrzewanie {
         ///podzadanie 1: storzyć listę pozycji, na których
         /// tablica "heaters" ma "1"
         for (int poz = 0; poz < heaters.length; poz++) {
-
+            if (heaters[poz]==1) {
+                System.out.println(poz);
+            }
         }
         return true;
     }
@@ -26,6 +28,11 @@ public class Ogrzewanie {
             a[i] = 4;
         }
         System.out.println(Arrays.toString(a));
+        int[] dane = new int[]{0,0,1,0,0};
+
+        Ogrzewanie instancja = new Ogrzewanie();
+        instancja.isHeated(dane, 10);
+
 
     }
 
