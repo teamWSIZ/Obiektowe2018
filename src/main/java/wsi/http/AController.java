@@ -2,6 +2,7 @@ package wsi.http;
 
 
 import org.springframework.web.bind.annotation.*;
+import wsi.model.Todo;
 
 import java.util.Date;
 
@@ -22,5 +23,13 @@ public class AController {
                             ) {
         return "Wynik dodawania:" + (a+b);
     }
+
+    //https://jsonplaceholder.typicode.com/
+    @RequestMapping(value = "/todos", method = RequestMethod.GET)
+    public Todo getTodo() {
+        Todo res = new Todo(1, 3, "fugiat veniam minus", false);
+        return res;
+    }
+
 
 }
