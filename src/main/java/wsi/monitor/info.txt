@@ -1,0 +1,7 @@
+https://dzone.com/articles/monitoring-using-spring-boot-2-prometheus-and-graf
+
+
+
+http://localhost:8888/actuator
+
+http://localhost:8888/actuator/prometheus
