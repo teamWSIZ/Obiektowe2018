@@ -3,22 +3,15 @@ package wsi.chat.rest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-import wsi.chat.Service.MessageService;
-import wsi.chat.Service.RoomService;
-import wsi.chat.Service.UserService;
+import wsi.chat.service.MessageService;
+import wsi.chat.service.RoomService;
+import wsi.chat.service.UserService;
 import wsi.chat.model.Message;
 import wsi.chat.model.Response;
 import wsi.chat.model.Room;
 import wsi.chat.model.User;
-import wsi.model.Pogoda;
-import wsi.model.Todo;
 
-import java.util.Date;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;

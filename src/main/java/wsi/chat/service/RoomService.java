@@ -1,4 +1,4 @@
-package wsi.chat.Service;
+package wsi.chat.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
