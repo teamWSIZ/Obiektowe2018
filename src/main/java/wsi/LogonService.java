@@ -9,8 +9,6 @@ public class LogonService {
     private boolean isLoggedIn;
     private String loggedUser;
 
-    //todo: zrobić funkcję czyszczenia danych (logout)
-    //todo: zrobić jakąś małą strukturę z danymi userów
 
     public LogonService() {
         isLoggedIn = false;
