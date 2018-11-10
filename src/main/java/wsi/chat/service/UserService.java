@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import wsi.chat.model.User;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,6 +35,19 @@ public class UserService {
             log.info("Created user with nick [{}]", nick);
             return new User(nick, pass);
         }
+    }
+
+    //Zwraca wszystkich userów w systemie, nie podając ich haseł
+    public List<User> getUsers() {
+        List<User> result =
+                new ArrayList<>();
+        for(String userId :
+                userPass.keySet()) {
+            result.add(
+                    new User(userId, null)
+            );
+        }
+        return result;
     }
 
     /**

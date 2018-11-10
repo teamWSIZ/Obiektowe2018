@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import wsi.chat.model.Room;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
 
@@ -26,6 +28,18 @@ public class RoomService {
         roomIds.add(id);
         return new Room(id);
     }
+
+    //Zwraca wszystkie dostępne chat-roomy
+    public List<Room> getRooms() {
+        List<Room> result = new ArrayList<>();
+        for(String id : roomIds) {
+            Room r = new Room(id);
+            result.add(r);
+        }
+
+        return result;
+    }
+
 
     public boolean roomExists(String id) {
         return roomIds.contains(id);

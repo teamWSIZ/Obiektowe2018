@@ -36,12 +36,27 @@ public class MainController {
         return userService.createUser(nick);
     }
 
+
+    ////////////////////////////////////////////
+    //ROOMS
+
+
     @RequestMapping(value = "/rooms/create", method = GET)
     public Room createRoom(
             @RequestParam(value = "roomid") String roomid) {
         log.info("Attempt to create room with id[{}]", roomid);
         return roomService.createRoom(roomid);
     }
+
+    @RequestMapping(value = "/rooms",
+            method = GET)
+    public List<Room> getRooms() {
+        log.info("Attempt to get all " +
+                "room names");
+        return roomService.getRooms();
+    }
+
+
 
     ////////////////////////////////////////////
 
