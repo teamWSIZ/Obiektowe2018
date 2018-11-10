@@ -36,6 +36,15 @@ public class MainController {
         return userService.createUser(nick);
     }
 
+    @RequestMapping(value = "/users",
+            method = GET)
+    public List<User> getUsers() {
+        log.info("Attempt to get all " +
+                "user names");
+        return userService.getUsers();
+    }
+
+
 
     ////////////////////////////////////////////
     //ROOMS
