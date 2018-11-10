@@ -1,0 +1,241 @@
+{
+	"info": {
+		"name": "chat-tests",
+		"_postman_id": "2deddd71-4676-9c20-b895-d43dd45e81be",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user create u1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8888/users/create?nick=u1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"users",
+						"create"
+					],
+					"query": [
+						{
+							"key": "nick",
+							"value": "u1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "user create u2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8888/users/create?nick=u2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"users",
+						"create"
+					],
+					"query": [
+						{
+							"key": "nick",
+							"value": "u2",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "room create r1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8888/rooms/create?roomid=r1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"rooms",
+						"create"
+					],
+					"query": [
+						{
+							"key": "roomid",
+							"value": "r1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "message post m1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": null, \n\t\"authorNick\" : \"u1\",\n\t\"room\" : \"r1\",\n\t\"content\" : \"sobota?\",\n\t\"upvote\" : 0,\n\t\"downvote\" : 0,\n\t\"flagvote\" : 0\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8888/rooms/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"rooms",
+						"messages"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "message post m2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": null, \n\t\"authorNick\" : \"u2\",\n\t\"room\" : \"r1\",\n\t\"content\" : \"nom, ok\",\n\t\"upvote\" : 0,\n\t\"downvote\" : 0,\n\t\"flagvote\" : 0\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8888/rooms/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"rooms",
+						"messages"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "message post m3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": null, \n\t\"authorNick\" : \"u1\",\n\t\"room\" : \"r1\",\n\t\"content\" : \"to super!\",\n\t\"upvote\" : 0,\n\t\"downvote\" : 0,\n\t\"flagvote\" : 0\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8888/rooms/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"rooms",
+						"messages"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": null, \n\t\"authorNick\" : \"u1\",\n\t\"room\" : \"r1\",\n\t\"content\" : \"to super!\",\n\t\"upvote\" : 0,\n\t\"downvote\" : 0,\n\t\"flagvote\" : 0\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8888/rooms/messages?roomid=r1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"rooms",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "roomid",
+							"value": "r1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
