@@ -168,6 +168,65 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "get all rooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8888/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"rooms"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get messages copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": null, \n\t\"authorNick\" : \"u1\",\n\t\"room\" : \"r1\",\n\t\"content\" : \"to super!\",\n\t\"upvote\" : 0,\n\t\"downvote\" : 0,\n\t\"flagvote\" : 0\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8888/rooms/messages?roomid=r1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"rooms",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "roomid",
+							"value": "r1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
