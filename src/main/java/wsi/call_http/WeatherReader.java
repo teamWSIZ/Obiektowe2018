@@ -1,4 +1,4 @@
-package wsi;
+package wsi.call_http;
 
 import org.springframework.web.client.RestTemplate;
 import wsi.model.Pogoda;

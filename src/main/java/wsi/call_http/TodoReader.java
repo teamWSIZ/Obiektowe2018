@@ -1,4 +1,4 @@
-package wsi;
+package wsi.call_http;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;

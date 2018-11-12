@@ -23,7 +23,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 @CrossOrigin
 @Slf4j
 public class FinControler implements InitializingBean {
-
     //do metryk/monitorwania
     @Autowired
     MeterRegistry registry;
@@ -46,7 +45,7 @@ public class FinControler implements InitializingBean {
     //https://www.baeldung.com/spring-scheduled-tasks
 
 
-    @Scheduled(cron = "0 0/10 * * * ?")
+//    @Scheduled(cron = "0 0/10 * * * ?")
     public void doSomethingInSchduledWay() {
         Random r = new Random();
         kurs.set(r.nextInt(100) + 10);
