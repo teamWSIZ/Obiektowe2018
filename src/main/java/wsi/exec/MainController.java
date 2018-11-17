@@ -3,102 +3,28 @@ package wsi.exec;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import static org.springframework.web.bind.annotation.RequestMethod.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import wsi.exec.model.ExecResponse;
+import wsi.exec.service.ExecEngine;
 
 @RestController
 @CrossOrigin
 @Slf4j
 public class MainController {
+    @Autowired
+    ExecEngine execEngine;
 
-//    @RequestMapping(value = "/users/create", method = GET)
-//    public User createUser(
-//            @RequestParam(value = "nick") String nick) {
-//        log.info("Attempt to create user with nick [{}]", nick);
-//        return userService.createUser(nick);
-//    }
-
-    @RequestMapping(value = "/status", method = GET)
+    @GetMapping(value = "/status")
     public String getStatus() {
         return "OK";
     }
 
-//    @RequestMapping(value = "/users",
-//            method = GET)
-//    public List<User> getUsers() {
-//        log.info("Attempt to get all " +
-//                "user names");
-//        return userService.getUsers();
-//    }
-//
-//
-//
-//    ////////////////////////////////////////////
-//    //ROOMS
-//
-//
-//    @RequestMapping(value = "/rooms/create", method = GET)
-//    public Room createRoom(
-//            @RequestParam(value = "roomid") String roomid) {
-//        log.info("Attempt to create room with id[{}]", roomid);
-//        return roomService.createRoom(roomid);
-//    }
-//
-//    @RequestMapping(value = "/rooms",
-//            method = GET)
-//    public List<Room> getRooms() {
-//        log.info("Attempt to get all " +
-//                "room names");
-//        return roomService.getRooms();
-//    }
-//
-//
-//
-//    ////////////////////////////////////////////
-//
-//    //MESSAGES
-//
-//    //CRUD (create read update delete)
-//
-//    @RequestMapping(value = "/rooms/messages", method = GET)
-//    public List<Message> getAllMessagesInRoom(
-//            @RequestParam(value = "roomid") String roomid) {
-//        return messageService.getByRoom(roomid);
-//    }
-//
-//    @RequestMapping(value = "/rooms/messages", method = POST)
-//    public Message postMessage(@RequestBody Message newMessage) {
-//        return messageService.create(newMessage);
-//    }
-//
-//    @RequestMapping(value = "/rooms/messages", method = PUT)
-//    public Message updateMessage(@RequestBody Message toUpdate) {
-//        return messageService.update(toUpdate);
-//    }
-//
-//    @RequestMapping(value = "/rooms/messages", method = DELETE)
-//    public Response deleteMessage(
-//            @RequestParam(value = "messageId") Integer messageId) {
-//        messageService.delete(messageId);
-//        return new Response("OK");
-//    }
-//
-//    /// VOTING
-////    @RequestMapping(value = "/rooms/messages/upvote", method = GET)
-////    public Room upvoteMessage(@RequestParam(value = "messageid") String messageid) {
-////        return roomService.createRoom(roomid);
-////    }
-////    @RequestMapping(value = "/rooms/messages/downvote", method = GET)
-////    public Room downvoteMessage(@RequestParam(value = "messageid") String messageid) {
-////        return roomService.createRoom(roomid);
-////    }
-////    @RequestMapping(value = "/rooms/messages/flag", method = GET)
-////    public Room flagMessage(@RequestParam(value = "messageid") String messageid) {
-////        return roomService.createRoom(roomid);
-////    }
-//
-//
-
+    @GetMapping(value = "/execute")
+    public ExecResponse execCommand(@RequestParam(value = "com") String command) {
+        return execEngine.executeIt(command);
+    }
 
 }
