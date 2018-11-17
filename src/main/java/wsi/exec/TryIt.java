@@ -8,8 +8,8 @@ public class TryIt {
     public static void main(String[] args) {
         try {
             String s = "";
-//            Process p = Runtime.getRuntime().exec("ps -ef");
-            Process p = Runtime.getRuntime().exec("tasklist");
+            Process p = Runtime.getRuntime().exec("ls -la /");
+//            Process p = Runtime.getRuntime().exec("tasklist");
 
             BufferedReader stdInput = new BufferedReader(new
                     InputStreamReader(p.getInputStream()));
