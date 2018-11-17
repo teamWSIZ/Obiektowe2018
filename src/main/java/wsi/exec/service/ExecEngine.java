@@ -10,6 +10,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Zabijanie procesów na windows:
+ * lista: tasklist
+ * --> znaleźć pid (process id)
+ * zabijanie: taskkill /f /pid [znaleziony_pid]
+ *
+ */
+
+
 @Component
 public class ExecEngine {
 
