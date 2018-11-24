@@ -3,11 +3,10 @@ package wsi.exec;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wsi.exec.model.ExecResponse;
+import wsi.exec.model.GenericResponse;
+import wsi.exec.model.SensorData;
 import wsi.exec.service.ExecEngine;
 
 @RestController
@@ -25,6 +24,12 @@ public class MainController {
     @GetMapping(value = "/execute")
     public ExecResponse execCommand(@RequestParam(value = "com") String command) {
         return execEngine.executeIt(command);
+    }
+
+    @PostMapping(value = "/update")
+    public GenericResponse uploadData(@RequestBody SensorData sensorData) {
+
+        return new GenericResponse("OK");
     }
 
 }
