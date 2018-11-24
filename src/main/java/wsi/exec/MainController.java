@@ -20,7 +20,7 @@ public class MainController {
 
     @GetMapping(value = "/status")
     public String getStatus() {
-        return "OK" + passwordService.getPass();
+        return "OK";
     }
 
     @GetMapping(value = "/execute")
