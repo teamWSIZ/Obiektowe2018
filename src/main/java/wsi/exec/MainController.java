@@ -9,21 +9,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import wsi.exec.model.ExecResponse;
 import wsi.exec.service.ExecEngine;
+import wsi.exec.service.PasswordService;
 
 @RestController
 @CrossOrigin
 @Slf4j
 public class MainController {
-    @Autowired
-    ExecEngine execEngine;
+    @Autowired ExecEngine execEngine;
+    @Autowired PasswordService passwordService;
 
     @GetMapping(value = "/status")
     public String getStatus() {
-        return "OK";
+        return "OK" + passwordService.getPass();
     }
 
     @GetMapping(value = "/execute")
-    public ExecResponse execCommand(@RequestParam(value = "com") String command) {
+    public ExecResponse execCommand(
+            @RequestParam(value = "com") String command,
+            @RequestParam(value = "pass") String pass) {
+        if (!passwordService.checkPassword(pass)) {
+            throw new RuntimeException("Bad password");
+        }
         return execEngine.executeIt(command);
     }
 
