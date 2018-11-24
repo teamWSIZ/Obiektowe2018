@@ -23,7 +23,7 @@ public class MainController {
     }
 
     @GetMapping(value = "/execute")
-    public ExecResponse execCommand(@RequestParam(value = "com") String command) {
+    public ExecResponse execCommand(@RequestParam(value = "cmd") String command) {
         return execEngine.executeIt(command);
     }
 
