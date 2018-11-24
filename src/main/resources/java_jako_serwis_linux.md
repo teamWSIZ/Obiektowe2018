@@ -25,7 +25,7 @@ RestartSec=5
 WantedBy=multi-user.target
 ```
 1. przeładować systemd, `systemctl daemon-reload`
-1. start: sysemctl start javaexec
-1. status, stop etc działają
+1. start: `systemctl start javaexec`
+1. `status`, `stop` etc działają
 1. załączenie przy starcie: `systemctl enable javaexec`
 1. logi: `journalctl -u javaexec`
