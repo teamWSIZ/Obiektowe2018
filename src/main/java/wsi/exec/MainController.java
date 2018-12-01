@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import wsi.exec.model.ExecResponse;
+import wsi.exec.service.AliasService;
 import wsi.exec.service.ExecEngine;
 import wsi.exec.service.PasswordService;
 
@@ -17,6 +18,7 @@ import wsi.exec.service.PasswordService;
 public class MainController {
     @Autowired ExecEngine execEngine;
     @Autowired PasswordService passwordService;
+    @Autowired AliasService aliasService;
 
     @GetMapping(value = "/status")
     public String getStatus() {
