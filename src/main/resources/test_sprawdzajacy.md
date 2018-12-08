@@ -39,18 +39,9 @@ http://localhost:8443/alias
 --> zwraca wszystkie aliasy
 ```
 [
-{
-    id:7,
-    alias:karramba
-},
-{
-    id:8,
-    alias:karramba1
-},
-{
-    id:9,
-    alias:karrambaX
-}
+{id:7,alias:karramba},
+{id:8,alias:karramba1},
+{id:9,alias:karrambaX}
 ]
 ```
 * Liczba zapisanych aliasów
