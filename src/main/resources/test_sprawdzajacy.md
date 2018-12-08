@@ -53,7 +53,14 @@ http://localhost:8443/alias
 }
 ]
 ```
+* Liczba zapisanych aliasów
 
+http://localhost:8443/alias/count
+
+
+* Usuwanie aliasu "karramba"
+
+http://localhost:8443/alias/delete?alias=karramba
 
 
 
