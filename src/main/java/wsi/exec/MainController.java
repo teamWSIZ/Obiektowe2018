@@ -7,10 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import wsi.exec.model.Alias;
 import wsi.exec.model.ExecResponse;
 import wsi.exec.model.VM;
-import wsi.exec.service.AliasService;
-import wsi.exec.service.ExecEngine;
-import wsi.exec.service.KvmService;
-import wsi.exec.service.PasswordService;
+import wsi.exec.service.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +19,7 @@ public class MainController {
     @Autowired ExecEngine execEngine;
     @Autowired PasswordService passwordService;
     @Autowired AliasService aliasService;
-    @Autowired KvmService kvmService;
+    @Autowired VirtualizationClient virtualizationClient;
 
     int id = 0;
     List<Alias> aliasy = new ArrayList<>();
@@ -30,21 +27,22 @@ public class MainController {
 
     @GetMapping(value = "/vm")
     public List<VM> listVMs() {
-        return kvmService.listVms();
+        return virtualizationClient.listVms();
     }
     @GetMapping(value = "/vm/{vmName}/start")
     public ExecResponse startVM(@PathVariable(value = "vmName") String vmName) {
-        return kvmService.start(vmName);
+        return virtualizationClient.start(vmName);
     }
     @GetMapping(value = "/vm/{vmName}/stop")
     public ExecResponse stopVM(@PathVariable(value = "vmName") String vmName) {
-        return kvmService.stop(vmName);
+        return virtualizationClient.stop(vmName);
     }
     @GetMapping(value = "/vm/{vmName}/forcestop")
     public ExecResponse forceStopVM(@PathVariable(value = "vmName") String vmName) {
-        return kvmService.forceStop(vmName);
+        return virtualizationClient.forceStop(vmName);
     }
 
+    //---------------
 
     @GetMapping(value = "/alias/new")
     public Alias newAlias(@RequestParam(value = "alias") String alias) {

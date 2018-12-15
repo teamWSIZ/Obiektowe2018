@@ -22,6 +22,10 @@ import java.util.List;
 @Component
 public class ExecEngine {
 
+    /**
+     * Wykonuje komendę `command`; listę lini zwróconych przez system operacyjny
+     * pakuje do pola .out odpowiedzi; listę błędów pakuje do pola .err.
+     */
     public ExecResponse executeIt(String command) {
         ExecResponse res = new ExecResponse();
 
