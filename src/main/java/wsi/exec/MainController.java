@@ -38,7 +38,7 @@ public class MainController {
     }
     @GetMapping(value = "/vm/{vmName}/stop")
     public ExecResponse stopVM(@PathVariable(value = "vmName") String vmName) {
-        return kvmService.start(vmName);
+        return kvmService.stop(vmName);
     }
     @GetMapping(value = "/vm/{vmName}/forcestop")
     public ExecResponse forceStopVM(@PathVariable(value = "vmName") String vmName) {
