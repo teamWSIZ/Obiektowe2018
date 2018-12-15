@@ -3,14 +3,13 @@ package wsi.exec;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import wsi.exec.model.Alias;
 import wsi.exec.model.ExecResponse;
+import wsi.exec.model.VM;
 import wsi.exec.service.AliasService;
 import wsi.exec.service.ExecEngine;
+import wsi.exec.service.KvmService;
 import wsi.exec.service.PasswordService;
 
 import java.util.ArrayList;
@@ -23,9 +22,28 @@ public class MainController {
     @Autowired ExecEngine execEngine;
     @Autowired PasswordService passwordService;
     @Autowired AliasService aliasService;
+    @Autowired KvmService kvmService;
 
     int id = 0;
     List<Alias> aliasy = new ArrayList<>();
+
+
+    @GetMapping(value = "/vm")
+    public List<VM> listVMs() {
+        return kvmService.listVms();
+    }
+    @GetMapping(value = "/vm/{vmName}/start")
+    public ExecResponse startVM(@PathVariable(value = "vmName") String vmName) {
+        return kvmService.start(vmName);
+    }
+    @GetMapping(value = "/vm/{vmName}/stop")
+    public ExecResponse stopVM(@PathVariable(value = "vmName") String vmName) {
+        return kvmService.start(vmName);
+    }
+    @GetMapping(value = "/vm/{vmName}/forcestop")
+    public ExecResponse forceStopVM(@PathVariable(value = "vmName") String vmName) {
+        return kvmService.forceStop(vmName);
+    }
 
 
     @GetMapping(value = "/alias/new")
