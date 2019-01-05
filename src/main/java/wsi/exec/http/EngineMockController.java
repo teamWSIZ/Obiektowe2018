@@ -20,7 +20,8 @@ import java.util.List;
 @CrossOrigin
 @Slf4j
 public class EngineMockController {
-    @Autowired EngineMock engine;
+    @Autowired
+    EngineMock engine;
 
     @GetMapping(value = "/temps")
     public List<Double> getAllTemperatures() {

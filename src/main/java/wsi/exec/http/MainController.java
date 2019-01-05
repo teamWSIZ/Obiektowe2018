@@ -3,6 +3,7 @@ package wsi.exec.http;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ import wsi.exec.service.EngineInterface;
 @Slf4j
 public class MainController {
 
+    @Qualifier("engineViaHttp")
     @Autowired EngineInterface engineInterface;
 
     @GetMapping(value = "/s")
@@ -27,7 +29,7 @@ public class MainController {
         return new GenericResponse("App is running OK");
     }
 
-    @GetMapping(value = "/status")
+    @GetMapping(value = "/enginestatus")
     public EngineStatus getEngineStatus() {
         return engineInterface.status();
     }
