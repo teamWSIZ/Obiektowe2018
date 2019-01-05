@@ -2,10 +2,13 @@ package wsi.exec.http;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import wsi.exec.model.EngineStatus;
 import wsi.exec.model.GenericResponse;
+import wsi.exec.service.EngineInterface;
 
 /**
  * REST kontroler dla backendu systemu kontroli silnikiem
@@ -17,9 +20,17 @@ import wsi.exec.model.GenericResponse;
 @Slf4j
 public class MainController {
 
+    @Autowired EngineInterface engineInterface;
+
     @GetMapping(value = "/s")
-    public GenericResponse statusEngine() {
+    public GenericResponse appStatus() {
         return new GenericResponse("App is running OK");
     }
+
+    @GetMapping(value = "/status")
+    public EngineStatus getEngineStatus() {
+        return engineInterface.status();
+    }
+
 
 }

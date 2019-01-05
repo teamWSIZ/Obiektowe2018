@@ -1,6 +1,5 @@
 package wsi.exec.service;
 
-import org.springframework.stereotype.Service;
 import wsi.exec.model.EngineStatus;
 
 import java.util.Arrays;
@@ -11,8 +10,8 @@ import java.util.Random;
  * Symuluje realny silnik
  */
 
-@Service
-public class EngineMock {
+//@Service
+public class EngineMock implements EngineInterface {
   List<Double> temps;
   int direction;  //1 or -1
   int runningState; //1 or -1 or 0 for not running
@@ -23,11 +22,13 @@ public class EngineMock {
     runningState = 0;
   }
 
+  @Override
   public List<Double> getTemps() {
     mockTimeLapse();
     return temps;
   }
 
+  @Override
   public EngineStatus start() {
     if (runningState==0) {
       runningState = direction;
@@ -35,6 +36,7 @@ public class EngineMock {
     return getCurrentState();
   }
 
+  @Override
   public EngineStatus stop() {
     if (runningState!=0) {
       runningState = 0;
@@ -43,11 +45,13 @@ public class EngineMock {
   }
 
 
+  @Override
   public EngineStatus status() {
     return new EngineStatus(direction, runningState);
   }
 
 
+  @Override
   public EngineStatus reverse() {
     if (runningState==0) {
       direction = -direction;
