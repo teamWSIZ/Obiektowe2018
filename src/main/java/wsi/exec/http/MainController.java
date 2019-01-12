@@ -11,6 +11,8 @@ import wsi.exec.model.EngineStatus;
 import wsi.exec.model.GenericResponse;
 import wsi.exec.service.EngineInterface;
 
+import java.util.List;
+
 /**
  * REST kontroler dla backendu systemu kontroli silnikiem
  */
@@ -47,6 +49,11 @@ public class MainController {
     @GetMapping(value = "/engine/reverse")
     public EngineStatus getEngineReverse() {
         return engineInterface.reverse();
+    }
+
+    @GetMapping(value = "/engine/temps")
+    public List<Double> getEngineTemps() {
+        return engineInterface.getTemps();
     }
 
 }

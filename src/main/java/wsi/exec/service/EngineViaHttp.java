@@ -3,6 +3,7 @@ package wsi.exec.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -29,7 +30,10 @@ public class EngineViaHttp implements EngineInterface, InitializingBean {
 
   @Override
   public List<Double> getTemps() {
-    return null;
+    log.info("Calling engine on: /temps");
+    ResponseEntity<List<Double>> response = template.exchange(engineURL + "/temps",
+            GET, null, new ParameterizedTypeReference<List<Double>>(){});
+    return response.getBody();
   }
 
   @Override
