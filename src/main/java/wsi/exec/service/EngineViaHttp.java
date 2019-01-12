@@ -34,28 +34,30 @@ public class EngineViaHttp implements EngineInterface, InitializingBean {
 
   @Override
   public EngineStatus start() {
-    return null;
+    return callEngine("/start");
   }
 
   @Override
   public EngineStatus stop() {
-    return null;
+    return callEngine("/stop");
   }
 
   @Override
   public EngineStatus status() {
     //powinien wysłać zapytanie po http do silnika by sprawdzić jego status...
-    log.info("Getting engine status from url: {}", engineURL);
-
-    ResponseEntity<EngineStatus> response = template.exchange(engineURL + "/status",
-      GET, null, EngineStatus.class);
-    EngineStatus status = response.getBody();
-    log.info("Status of engine: {}", status);
-    return status;
+    return callEngine("/status");
   }
 
   @Override
   public EngineStatus reverse() {
-    return null;
+    return callEngine("/reverse");
+  }
+
+  //Helper method to call the realEngine via http
+  private EngineStatus callEngine(String path) {
+    log.info("Calling engine on: {}", path);
+    ResponseEntity<EngineStatus> response = template.exchange(engineURL + path,
+            GET, null, EngineStatus.class);
+    return response.getBody();
   }
 }

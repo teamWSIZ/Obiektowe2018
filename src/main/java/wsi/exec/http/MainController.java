@@ -29,10 +29,24 @@ public class MainController {
         return new GenericResponse("App is running OK");
     }
 
-    @GetMapping(value = "/enginestatus")
+    @GetMapping(value = "/engine/status")
     public EngineStatus getEngineStatus() {
         return engineInterface.status();
     }
 
+    @GetMapping(value = "/engine/start")
+    public EngineStatus getEngineStart() {
+        return engineInterface.start();
+    }
+
+    @GetMapping(value = "/engine/stop")
+    public EngineStatus getEngineStop() {
+        return engineInterface.stop();
+    }
+
+    @GetMapping(value = "/engine/reverse")
+    public EngineStatus getEngineReverse() {
+        return engineInterface.reverse();
+    }
 
 }
