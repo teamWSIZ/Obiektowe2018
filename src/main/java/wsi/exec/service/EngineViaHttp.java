@@ -1,23 +1,34 @@
 package wsi.exec.service;
 
+import com.google.common.util.concurrent.AtomicDouble;
+import io.micrometer.core.instrument.MeterRegistry;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import wsi.exec.model.EngineStatus;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.springframework.http.HttpMethod.GET;
 
 @Service
 @Slf4j
 public class EngineViaHttp implements EngineInterface, InitializingBean {
-//  String engineURL = "https://localhost:8443";
+  @Autowired
+  MeterRegistry registry;  //pozwala na eksport metryk do prometheus-a
+
+  List<AtomicDouble> engineTemps;
+
   @Value("${realengine.url}")
   String engineURL;
   RestTemplate template;
@@ -26,6 +37,27 @@ public class EngineViaHttp implements EngineInterface, InitializingBean {
   public void afterPropertiesSet() throws Exception {
     template = new RestTemplate();
     log.info("Starting engine connection to: {}", engineURL);
+
+    setupGauges();
+  }
+
+  private void setupGauges() {
+    engineTemps = new ArrayList<>();
+    for (int i = 0; i < 8; i++) {
+//      AtomicDouble someTempValue = new AtomicDouble(20);
+      AtomicDouble someTempValue = registry.gauge("enginetemp_" + i, new AtomicDouble(0));
+      engineTemps.add(someTempValue);
+    }
+  }
+
+  //https://crontab.guru/
+  @Scheduled(cron = "0/5 * * * * ?")  ///cron expression; sec min hour day moth day_of_week
+  public void updateCurrentEngineTemps() {
+    List<Double> currentTemps = getTemps();
+    ArrayList<Double> ct = new ArrayList<>(currentTemps); //zamiana listy na arraylist
+    for (int i = 0; i < 8; i++) {
+      engineTemps.get(i).set(ct.get(i));
+    }
   }
 
   @Override

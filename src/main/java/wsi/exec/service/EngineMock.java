@@ -18,7 +18,7 @@ public class EngineMock implements EngineInterface {
   int runningState; //1 or -1 or 0 for not running
 
   public EngineMock() {
-    temps = Arrays.asList(20.,20.,20.,20.,20.,20.,20.,20.,20.);
+    temps = Arrays.asList(20.,20.,20.,20.,20.,20.,20.,20.);
     direction = 1;
     runningState = 0;
   }
