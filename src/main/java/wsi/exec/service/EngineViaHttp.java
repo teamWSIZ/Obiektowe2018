@@ -1,6 +1,8 @@
 package wsi.exec.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -9,11 +11,22 @@ import wsi.exec.model.EngineStatus;
 
 import java.util.List;
 
+import static org.springframework.http.HttpMethod.GET;
+
 @Service
 @Slf4j
-public class EngineViaHttp implements EngineInterface {
+public class EngineViaHttp implements EngineInterface, InitializingBean {
 //  String engineURL = "https://localhost:8443";
-  String engineURL = "http://localhost:8081";
+  @Value("${realengine.url}")
+  String engineURL;
+  RestTemplate template;
+
+  @Override
+  public void afterPropertiesSet() throws Exception {
+    template = new RestTemplate();
+    log.info("Starting engine connection to: {}", engineURL);
+  }
+
   @Override
   public List<Double> getTemps() {
     return null;
@@ -33,11 +46,9 @@ public class EngineViaHttp implements EngineInterface {
   public EngineStatus status() {
     //powinien wysłać zapytanie po http do silnika by sprawdzić jego status...
     log.info("Getting engine status from url: {}", engineURL);
-    RestTemplate template = new RestTemplate();
 
     ResponseEntity<EngineStatus> response = template.exchange(engineURL + "/status",
-      HttpMethod.GET,
-      null, EngineStatus.class);
+      GET, null, EngineStatus.class);
     EngineStatus status = response.getBody();
     log.info("Status of engine: {}", status);
     return status;
