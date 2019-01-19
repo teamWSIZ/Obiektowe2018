@@ -20,6 +20,21 @@
 		},
 		{
 			"name": "localhost:8081/engine/status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var j = JSON.parse(responseBody)",
+							"//to jest sposób na sprawdzenie czy pola JSONa w odpowiedzi zawierają oczekiwane wartości",
+							"tests[\"engine is not running\"] = (j.runningState===0)",
+							"",
+							""
+						]
+					}
+				}
+			],
 			"request": {
 				"url": "localhost:8081/engine/status",
 				"method": "GET",
