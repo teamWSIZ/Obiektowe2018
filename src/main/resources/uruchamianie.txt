@@ -1,0 +1,10 @@
+
+Na linux/macOS:
+
+nohup java -jar obiektowe-1.0-SNAPSHOT.jar &
+
+(będzie działała w tle, log do nohup.out)
+
+.. + trzeba pozwolić na połączenia na port 8081 w firewallu
+(na linuxie: firewall-cmd --zone=public --add-port=8081/tcp)
+
