@@ -1,0 +1,7 @@
+
+
+... nie działa pod FFoxem na Win12
+
+-------
+
+(sprawdzenie czy działa dodawanie graczy)

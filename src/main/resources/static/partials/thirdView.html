@@ -1,0 +1,154 @@
+<div class=" bg col-sm-12">
+    <h4 class="text-center" style="margin: 7px"> Finał Mistrzostw RzKSz </h4>
+
+    <div class="row">
+        <!-- tu może być col-sm-6, col-md-6, col-lg-6 -->
+        <!--lewy panel (dodwanie uczestników)-->
+        <div class="col-lg-6 boxed">
+            <div class="card">
+                <div class="card-header">
+                    <h5> Dodaj uczestnika</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputImie" class="col-sm-3 col-form-label">Imię</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputImie"
+                                       ng-model="nImie" placeholder="Imię">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputNazwisko" class="col-sm-3 col-form-label">Nazwisko</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputNazwisko"
+                                       ng-model="nNazwisko" placeholder="Nazwisko">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputWynik" class="col-sm-3 col-form-label">Wynik</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputWynik"
+                                       ng-model="nWynik" placeholder="Wynik">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" ng-click="dodajUsera(nImie, nNazwisko, nWynik)"
+                                        class="btn btn-primary">Dodaj uczestnika</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                </div>
+            </div>
+        </div>
+        <!-- Prawy panel: wyniki konkursu -->
+        <!-- Komentarze: Ctrl+/ -->
+        <div class="col-lg-6 boxed">
+
+            <div class="card">
+                <div class="card-header">
+                    <h5>Wyniki konkursu</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr class="table-light">
+                            <th width="30%"  class="clickable" ng-click="sortImie()"> Imię</th>
+                            <th width="30%"  class="clickable" ng-click="sortNazwisko()"> Nazwisko</th>
+                            <th width="10%"  class="clickable"> Wynik</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="u in uczestnicy">
+                            <td>{{u.imie}}</td>
+                            <td>{{u.nazwisko}}</td>
+                            <td>{{u.wynik}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="card-footer">
+                    Uczestników: {{userCount}}, średni wynik: {{avgScore}}, najlepszy wynik: {{bestScore}}
+                    <img ng-src="{{wybraneZdjecie}}" class="img-responsive" height="100" width="100"/>
+                    <img src="https://via.placeholder.com/150/56a8c2"
+                         class="img-responsive" height="50" width="50"/>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+                <div class="card-header">
+                    Obrazki z albumu
+                    <input type="text" class="form-control"
+                           ng-model="selectedAlbum">
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary"
+                            ng-click="getPicturesOfAlbum(selectedAlbum)">
+                        Load extra</button>
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr class="table-light">
+                            <th class="w-50"> Title </th>
+                            <th class="w-50"> Picture </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="p in pictures">
+                            <td>{{p.title}}</td>
+                            <td>
+                                <img ng-src="{{p.thumbnailUrl}}" class="img-responsive" height="50" width="50"/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="card bg-dark text-white">
+                <img class="card-img" src="css/queen.jpg" alt="Card image">
+                <div class="card-img-overlay">
+                    <div class="card-header h3">Wyniki mistrzostw</div>
+                    <div class="card-body">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr class="">
+                                <th width="30%"  class="clickable"> Imię</th>
+                                <th width="30%"  class="clickable" ng-click="sortNazwisko()"> Nazwisko</th>
+                                <th width="10%"  class="clickable"> Wynik</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-repeat="u in uczestnicy">
+                                <td>{{u.imie}}</td>
+                                <td>{{u.nazwisko}}</td>
+                                <td>{{u.wynik}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">(no more info here)</div>
+                </div>
+            </div>
+
+
+            <button class="btn btn-outline-primary" ng-click="test1()">Solve 1</button>
+        </div>
+
+    </div>
+
+
+
+</div>

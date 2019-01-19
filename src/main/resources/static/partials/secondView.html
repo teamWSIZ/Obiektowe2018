@@ -1,0 +1,117 @@
+<div class="col-sm-12">
+    <h4 class="text-center" style="margin: 7px"> Drugi widok </h4>
+
+
+    <!-- Sekcja przycisków na górze -->
+    <div class="row">
+        <div class="col-sm-5">
+            <button class="btn btn-primary" ng-click="M.wynik='kliknięty'"> Ustaw</button>
+
+            <button class="btn btn-primary"
+                    ng-click="isVisible=true"> Pokaż
+                <span class="fas fa-eye"/>
+            </button>
+
+            <button class="btn btn-primary"
+                    ng-click="isVisible=false">
+                Ukryj
+                <span class="fas fa-eye-slash"/>
+            </button>
+
+
+        </div>
+        <div class="col-sm-7 text-right">
+
+            <button class="btn btn-default text-danger"
+                    ng-click="M.wynik.concat('abraKadabra\n')" title="Jakiś głębszy opis"> Dodaj
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Sekcja akcji na dole -->
+    <div class="row">
+        <!-- tu może być col-sm-6, col-md-6, col-lg-6 -->
+        <div class="col-lg-6 boxed">
+            <!--trójkąty-->
+            <div class="card" ng-if="isVisible">
+                <div class="card-header">
+                    Trójkąty
+                </div>
+                <div class="card-body">
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            Boki trójkąta
+                        </p>
+                        <input type="number" ng-model="M.bokA" placeholder="bok A">
+                        <input type="number" ng-model="M.bokB" placeholder="bok B">
+                        <input type="number" ng-model="M.bokC" placeholder="bok C">
+                        <button class="btn btn-primary" ng-click="sprawdzTrojkat()">
+                            <i class="fas fa-calculator display-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--liczby mniejsze-->
+            <div class="card" ng-if="false">
+                <div class="card-header">
+                    Liczby mniejsze
+                </div>
+                <div class="card-body">
+
+                    <div class="card-body">
+                        <p class="card-text">
+
+                        </p>
+                        <input type="number" ng-model="A" placeholder="liczba A">
+                        <input type="number" ng-model="B" placeholder="liczba B">
+
+                        <!-- todo: przekazać parametry do funkcji -->
+                        <button class="btn btn-primary" ng-click="liczbaMniejsza()">
+                            <i class="fas fa-calculator display-5"></i>
+                        </button>
+                        <button class="btn" ng-class="(A<B ? 'btn-success' : 'btn-warning')"> A jest mniejsza </button>
+                    </div>
+                </div>
+            </div>
+
+            <!--tablice i cięcie napisów-->
+            <div class="card">
+                <div class="card-header">
+                    Cięcie napisów
+                </div>
+                <div class="card-body">
+
+                    <div class="card-body">
+                        <p class="card-text">
+
+                        </p>
+                        <input type="text" ng-model="napis" placeholder="napis">
+                        <button class="btn btn-primary" ng-click="potnij(napis)">
+                            <i class="fas fa-calculator display-5"></i>
+                        </button>
+                        <input type="text" ng-model="napis_wynik"
+                               placeholder="napis_wynik">
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="col-lg-6 boxed">
+            <div class="form-group">
+                <label for="textArea1">Wyniki</label>
+                <textarea class="form-control" id="textArea1" rows="10">
+                    {{M.wynik}}
+                </textarea>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>

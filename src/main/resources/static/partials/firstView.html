@@ -1,0 +1,112 @@
+<div class="col-sm-12">
+    <h4 class="text-center" style="margin: 7px"> Druga aplikacja </h4>
+
+
+    <div class="row">
+        <div class="col-sm-5">
+            <button class="btn btn-primary" ng-click="loadResults()">Reload {{x}}
+                <i class="fas fa-sync"></i>
+                <i class="fas fa-cloud-upload-alt"></i>
+                <i class="fab fa-instagram"></i>
+                <!-- dalsze ikony: https://fontawesome.com/  -->
+            </button>
+
+        </div>
+        <div class="col-sm-7 text-right">
+
+            <button class="btn btn-default text-danger"
+                    ng-click="cleanupStorage()" title="Jakiś głębszy opis">Przycisk
+            </button>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- tu może być col-sm-6, col-md-6, col-lg-6 -->
+        <div class="col-lg-6 boxed">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr class="table-info">
+                    <th width="30%" ng-click="M.tableorder='sourceHost'" class="clickable"> Imię</th>
+                    <th width="30%" ng-click="M.tableorder='receiverHost'" class="clickable"> Nazwisko</th>
+                    <th width="20%" ng-click="M.tableorder='group'" class="clickable"> Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="r in M.results">
+                    <td>{{r.imie}}</td>
+                    <td>{{r.nazwisko}}</td>
+                    <td class="table-warning">{{r.score}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6 boxed">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr class="table-info">
+                    <th width="30%"  class="clickable"> UserId</th>
+                    <th width="30%"  class="clickable"> Tytuł</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="r in M.todo">
+                    <td>{{r.userId}}</td>
+                    <td>{{r.title}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary" ng-click="getTodos()">
+                <i class="fas fa-sync"></i> </button>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+
+            <!-- TO BYŁO NA LEKCJI 1 -->
+            <div class="card">
+                <div class="card-header">
+                    {{nazwaArtykulu}} {{x}}
+                </div>
+                <div class="card-body">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">
+                            Wynik dodawania x i y = {{ x * y}}  <br>
+                            W zmiennej AABB jest: {{AABB + AABB}}
+                        </p>
+                        <input type="text" ng-model="x" placeholder="zmienna x">
+                        <input type="text" ng-model="y" placeholder="zmienna y">
+                        <button class="btn btn-primary" ng-click="wyliczIloraz(x,y)"
+                                title="Wylicz iloraz">
+                            <i class="fas fa-calculator display-5"></i>
+                        </button>
+                        <input type="text" ng-model="iloraz" readonly="true">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header"> header </div>
+                <div class="card-body">
+                    <input type="text" ng-model="imie" placeholder="Twoje imie">
+                    <button class="btn btn-success" ng-click="zalogowany=imie">
+                        Zaloguj
+                    </button>
+
+                </div>
+                <div class="card-footer"> Zalogowany użytkownik: {{zalogowany}}</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

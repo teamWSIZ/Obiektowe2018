@@ -45,6 +45,11 @@ public class EngineViaHttp implements EngineInterface, InitializingBean {
     engineTemps = new ArrayList<>();
     for (int i = 0; i < 8; i++) {
 //      AtomicDouble someTempValue = new AtomicDouble(20);
+      //zamiast tworzyć "AtomicDouble" tworzymy go przez registry.gauge,
+      //który rejestruje "gauge" (zestaw wawrtości) widocznych potem na
+      // /actuator/prometheus
+      // te wartości zczytuje potem prometheus i umożliwia graficzną prezentację
+      // (np. przez graphana)
       AtomicDouble someTempValue = registry.gauge("enginetemp_" + i, new AtomicDouble(0));
       engineTemps.add(someTempValue);
     }
