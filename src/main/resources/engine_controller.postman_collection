@@ -1,0 +1,66 @@
+{
+	"variables": [],
+	"info": {
+		"name": "engine_controller",
+		"_postman_id": "774b774a-b4d0-892f-cc48-3bef7acf289b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8081/s",
+			"request": {
+				"url": "localhost:8081/s",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/engine/status",
+			"request": {
+				"url": "localhost:8081/engine/status",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/engine/reverse",
+			"request": {
+				"url": "localhost:8081/engine/reverse",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/engine/start",
+			"request": {
+				"url": "localhost:8081/engine/start",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/engine/stop",
+			"request": {
+				"url": "localhost:8081/engine/stop",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
