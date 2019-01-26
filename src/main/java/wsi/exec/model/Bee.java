@@ -4,9 +4,10 @@ import lombok.Data;
 
 @Data
 public class Bee {
-    int strength;   //strength + capacity == 100
-    int capacity;
-    int food;
+    private int strength;   //strength + capacity == 100
+    private int capacity;
+    private int food;
+    private BeePlace location;
 
     public Bee() {
         //tworzenie domyślnej pszczoły
