@@ -3,6 +3,7 @@ package wsi.exec.model;
 
 import org.junit.Before;
 import org.junit.Test;
+import wsi.exec.model.bees.Bee;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,7 +12,7 @@ public class MeadowTest {
 
     @Before
     public void setUp() throws Exception {
-        testee = new Meadow(100);
+        testee = new Meadow(100, "x");
     }
 
     @Test
@@ -19,7 +20,7 @@ public class MeadowTest {
         //given
         Bee b = new Bee();
         //when
-        testee.beeEnters(b);
+        testee.addBee(b);
         //then
         assertThat(testee.getBees()).containsOnly(b);
     }
@@ -29,8 +30,8 @@ public class MeadowTest {
         //given
         Bee b = new Bee();
         //when
-        testee.beeEnters(b);
-        testee.beeLeaves(b);
+        testee.addBee(b);
+        testee.removeBee(b);
         //then
         assertThat(testee.getBees()).isEmpty();
     }

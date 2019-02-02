@@ -1,19 +1,44 @@
-package wsi.exec.model;
+package wsi.exec.model.bees;
 
 import lombok.Data;
+import wsi.exec.model.Place;
+
+/**
+ * głupia pszczoła... pozostaje ciągle w swoim miejscu
+ *
+ * todo: jak stworzyć interface do pluginów, czyli pszczół podawanych z BeeMarketplace
+ */
 
 @Data
-public class Bee {
+public class Bee implements Movable {
     private int strength;   //strength + capacity == 100
     private int capacity;
     private int food;
-    private BeePlace location;
+
+    private boolean canMove;
 
     public Bee() {
         //tworzenie domyślnej pszczoły
         strength = 50;
         capacity = 50;
         food = 0;
+    }
+
+
+    @Override
+    public Place preferredMove(Place current) {
+        setCanMove(false);
+        return current;
+    }
+
+    @Override
+    public boolean isCanMove() {
+        return canMove;
+    }
+
+    @Override
+    public void setCanMove(boolean canMove) {
+        this.canMove = canMove;
     }
 
     public void setStrength(int strength) {
