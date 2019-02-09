@@ -1,6 +1,6 @@
 package wsi.exec.model.bees;
 
-import wsi.exec.model.Place;
+import wsi.exec.model.places.Place;
 
 import java.util.HashSet;
 import java.util.List;

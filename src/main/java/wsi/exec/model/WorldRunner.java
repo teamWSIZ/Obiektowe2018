@@ -1,7 +1,9 @@
 package wsi.exec.model;
 
 import wsi.exec.model.bees.Bee;
+import wsi.exec.model.bees.MemorizingBee;
 import wsi.exec.model.bees.WanderingBee;
+import wsi.exec.model.places.Meadow;
 
 import static java.util.Arrays.asList;
 
@@ -14,7 +16,11 @@ public class WorldRunner {
         m2.addNearbyPlace(m1);
 
         Bee b1 = new WanderingBee();
+        Bee b2 = new MemorizingBee();
+        Bee b3 = new WanderingBee();
         m1.addBee(b1);
+        m1.addBee(b2);
+        m1.addBee(b3);
 
         //odpalić "run"
         World w = new World();

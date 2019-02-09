@@ -1,4 +1,4 @@
-package wsi.exec.model;
+package wsi.exec.model.places;
 
 import wsi.exec.model.bees.Bee;
 

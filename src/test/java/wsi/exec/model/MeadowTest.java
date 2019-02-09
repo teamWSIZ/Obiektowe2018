@@ -4,6 +4,7 @@ package wsi.exec.model;
 import org.junit.Before;
 import org.junit.Test;
 import wsi.exec.model.bees.Bee;
+import wsi.exec.model.places.Meadow;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,5 +1,7 @@
 package wsi.exec.model;
 
+import wsi.exec.model.places.Place;
+
 import java.util.List;
 
 public class World {

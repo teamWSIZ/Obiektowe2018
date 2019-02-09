@@ -1,7 +1,7 @@
 package wsi.exec.model.bees;
 
 import lombok.Data;
-import wsi.exec.model.Place;
+import wsi.exec.model.places.Place;
 
 /**
  * głupia pszczoła... pozostaje ciągle w swoim miejscu
