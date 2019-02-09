@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class MemorizingBee extends WanderingBee {
+public class ScoutBee extends WanderingBee {
     Set<Place> visited = new HashSet<>();
 
     /**
@@ -21,6 +21,7 @@ public class MemorizingBee extends WanderingBee {
         candidates.removeAll(visited);
         Place selected = selectDifferent(current, candidates);
         visited.add(selected);
+        setCanMove(false);
         return selected;
     }
 }

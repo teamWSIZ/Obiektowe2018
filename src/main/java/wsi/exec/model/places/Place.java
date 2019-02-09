@@ -29,4 +29,6 @@ public interface Place {
     void beesMove();
 
     void print();
+
+    String toString();
 }

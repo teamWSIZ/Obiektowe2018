@@ -6,6 +6,7 @@ import java.util.List;
 
 public class WanderingBee extends Bee {
 
+
     @Override
     public Place preferredMove(Place current) {
         Place next =  selectDifferent(current, current.getNearbyPlaces());
