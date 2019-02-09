@@ -1,4 +1,4 @@
-package wsi.exec.model;
+package wsi.exec.http;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -66,6 +66,7 @@ public class Meadow implements Place {
         bees.forEach(bee -> {
             if (!bee.isCanMove()) return; //nie robimy ruchu dla tej pszczoły bo się już ruszała
             Place next = bee.preferredMove(this);
+            bee.setCanMove(false); //unieruchom pszczołę po ruchu
             if (next.equals(this)) return; //nie ma ruchu, więc nic nie zmieniamy
             toremove.add(bee);
             next.addBee(bee);

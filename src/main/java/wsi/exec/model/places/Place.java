@@ -20,13 +20,13 @@ public interface Place {
     //metody do konstrukcji świata
     void addNearbyPlace(Place other);  //dodaje dodatkowe miejsce osiągalne z obecnego
 
-    void beesFeed();
+    void beesFeed();    //spożywanie pokarmu (metabolizm) + zbieranie z łąki
 
     void beesCommunicate();
 
     void beesBreed();
 
-    void beesMove();
+    void beesMove();    //po wykonaniu tej metody, wszystkie obecne pszczoły mają być isCanMove==false
 
     void print();
 

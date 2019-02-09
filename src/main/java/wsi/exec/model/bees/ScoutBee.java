@@ -21,7 +21,6 @@ public class ScoutBee extends WanderingBee {
         candidates.removeAll(visited);
         Place selected = selectDifferent(current, candidates);
         visited.add(selected);
-        setCanMove(false);
         return selected;
     }
 }

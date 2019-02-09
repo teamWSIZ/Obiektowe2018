@@ -1,4 +1,4 @@
-package wsi.exec.model;
+package wsi.exec.service;
 
 import wsi.exec.model.places.Place;
 

@@ -6,9 +6,9 @@ public interface Movable {
 
     Place preferredMove(Place current);
 
-    public boolean isCanMove();
+    boolean isCanMove();
 
-    public void setCanMove(boolean canMove);
+    void setCanMove(boolean canMove);
 
 
 }

@@ -10,10 +10,10 @@ public class WanderingBee extends Bee {
     @Override
     public Place preferredMove(Place current) {
         Place next =  selectDifferent(current, current.getNearbyPlaces());
-        this.setCanMove(false);
         return next;
     }
 
+    //Wybiera jedno z miejsc w `candidates`, inne od miejsca `current`.
     protected Place selectDifferent(Place current, List<Place> candidates) {
         System.out.println("selecting from: " + candidates);
         Place toGo = current;
