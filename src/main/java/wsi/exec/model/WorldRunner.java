@@ -10,8 +10,8 @@ import static java.util.Arrays.asList;
 public class WorldRunner {
     public static void main(String[] args) {
         //zbudować świat
-        Meadow m1 = new Meadow(10, "m1");
-        Meadow m2 = new Meadow(10, "m2");
+        Meadow m1 = new Meadow(10, "Mazańcowice");
+        Meadow m2 = new Meadow(10, "Hałcnów");
         m1.addNearbyPlace(m2);
         m2.addNearbyPlace(m1);
 

@@ -3,6 +3,8 @@ package wsi.exec.model.bees;
 import lombok.Data;
 import wsi.exec.model.places.Place;
 
+import java.util.UUID;
+
 /**
  * głupia pszczoła... pozostaje ciągle w swoim miejscu
  *
@@ -14,6 +16,7 @@ public class Bee implements Movable {
     private int strength;   //strength + capacity == 100
     private int capacity;
     private int food;
+    private String id; //unikalny ID w roju
 
     private boolean canMove;
 
@@ -22,6 +25,7 @@ public class Bee implements Movable {
         strength = 50;
         capacity = 50;
         food = 0;
+        id = UUID.randomUUID().toString().substring(0,8);
     }
 
 
@@ -61,4 +65,7 @@ public class Bee implements Movable {
                 (capacity >= 0) && food >= 0 && food <= capacity);
     }
 
+    public String getId() {
+        return id;
+    }
 }
