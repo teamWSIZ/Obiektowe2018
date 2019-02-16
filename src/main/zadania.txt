@@ -1,0 +1,19 @@
+
+
+#####
+- spring boot app (z kontaktem przez http)
+- umieć pisać testy do napisanych klas
+- umieć wykorzystywać interface/extends
+
+
+===============
+1) Rozpocząć od projektu z działającym spring boot
+2) Zaimplementować ścieżkę "/status" odpowiadającą napisem "Applikacja 'pyszne' działa ok."
+3) Napisać klasę Pyszne implementującą interfejs Vendor
+4) Napisać testy automatyczne sprawdzające poprawność działania klasy Pyszne
+====
+5) podpiąć obie metody interfesu Vendor pod kontroler http
+   /pyszne/orders   ---> lista zamówień
+   /pyszne/products ---> lista dostępnych produktów (można wpisać na twardo do klasy Pyszne)
+   /pyszne/order?product=pizza&customer=Pompeo&quantity=100
+
